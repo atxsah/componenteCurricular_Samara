@@ -36,21 +36,3 @@
 			<?php endforeach; ?>
 	</body>
 </table>
- 
-<!-- 
-<?php
-$title = '<< Anterior'; 
-$options = array( ); 
-$disabledTitle = NULL; 
-$disabledOptions = array( );
-
-
-echo $this->Paginator->prev($title, $options, $disabledTitle, $disabledOptions);
-
-$title = ' Próximo >>'; 
-$options = array( ); 
-$disabledTitle = NULL; 
-$disabledOptions = array( );
-
-echo $this->Paginator->next($title, $options, $disabledTitle, $disabledOptions);
-?>

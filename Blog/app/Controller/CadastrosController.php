@@ -34,11 +34,10 @@ class CadastrosController extends AppController {
 		$this -> set('cadastro', $p);
 	}
 
-
 	// /cadastros/add
 	public function add() {
 		# se for enviado um CADASTRO pegar os dados do form e salvar no banco
-		if ($this -> request -> is('cadastro')) {
+		if ($this -> request -> is('post')) {
 
 			$dadosDoFormulario = $this -> request -> data;
 
@@ -52,7 +51,7 @@ class CadastrosController extends AppController {
 				$this -> redirect(array('action' => 'index'));
 			}
 		}
-	} 
+	}
 
 	public function edit($id = null) {
 		$this -> Cadastro -> id = $id;
@@ -60,19 +59,20 @@ class CadastrosController extends AppController {
 			$this -> request -> data = $this -> Cadastro -> read();
 		} else {
 			if ($this -> Cadastro -> save($this -> request -> data)) {
-				$this -> Session -> setFlash('Your post has been updated.');
+				$this -> Session -> setFlash('Evento atualizado com sucesso.');
 				$this -> redirect(array('action' => 'index'));
 			}
 		}
 	}
 
 	public function delete($id = null) {
-    if (!$this->request->is('cadastro')) {
-        throw new MethodNotAllowedException();
-    }
-    if ($this->Post->delete($id)) {
-        $this->Session->setFlash('The post with id: ' . $id . ' has been deleted.');
-        $this->redirect(array('action' => 'index'));
-    }
-}
+		if (!$this -> request -> is('post')) {
+			throw new MethodNotAllowedException();
+		}
+		if ($this -> Cadastro -> delete($id)) {
+			$this -> Session -> setFlash('Evento: ' . $id . ' removido com sucesso.');
+			$this -> redirect(array('action' => 'index'));
+		}
+	}
+
 }
