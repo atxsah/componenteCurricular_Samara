@@ -2,7 +2,7 @@
 
 <?php
 //criando o formulario através do Ajudante Form
-echo $this->Form->create('Cadastros');
+echo $this->Form->create('Cadastro');
 
 //gerando os inputs através do Ajudante Form
 echo $this->Form->input('nome');

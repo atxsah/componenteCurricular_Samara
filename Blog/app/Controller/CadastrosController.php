@@ -1,70 +1,78 @@
 <?php
 
-	class CadastrosController extends AppController {
+class CadastrosController extends AppController {
 
-		public $helpers = array("Html", "Form");
-		public $components = array("Session");
-	
-		// action
-		// /posts/index
-		public function index(){
-			$todasAsPostagens = $this->Cadastro->find('all');
-			
-			// jogar pra VIEW
-			$this->set('cadastros', $todasAsPostagens);
-		}
+	public $helpers = array("Html", "Form");
+	public $components = array("Session");
 
-		public function view($id = null){
+	var $paginate = array('limit' => 5, 'order' => array('Cadastro.nome' => 'asc'));
 
-			// setar o cadastro com id == 3;
-			$this->Cadastro->id = $id;
+	// action
+	// /cadastro/index
+	public function index() {
 
-			//procurar no banco o item com id == 3
-			$p = $this->Cadastro->read();
+		$options = array('fields' => array('Cadastro.id', 'Cadastro.nome', 'Cadastro.local', 'Cadastro.data', 'Cadastro.created', 'Cadastro.modified'), 'order' => array('Cadastro.created' => 'DESC'), 'limit' => 5);
 
-			// enviando para a VIEW os campos do item
-			$this->set('cadastro', $p);
-		}
+		$this -> paginate = $options;
 
-		public function add(){
+		$todasAsPostagens = $this -> paginate('Cadastro');
 
-			# se for enviado um POST pegar os dados do form e salvar no banco
-			if ($this->request->is('cadastro')) {
+		// jogar pra VIEW
+		$this -> set('cadastros', $todasAsPostagens);
+	}
 
-				# 
-				$dadosDoFormulario = $this->request->data;
+	// /cadastros/view/3
+	public function view($id = null) {
 
-				# tentar salvar os dados no banco
-				# se conseguir salvar, mostrar uma MSG e REDIRECIONAR pra o INDEX
-				if ($this->Cadastro->save($dadosDoFormulario)) {
-					# mostrar MSG
-					$this->Session->setFlash("O cadastro foi inserido com sucesso!");
+		// setar o Cadastro com id == 3;
+		$this -> Cadastro -> id = $id;
 
-					# redirecionar para o index
-					$this->redirect(array('action' => 'index'));
-				}
+		//procurar no banco o item com id == 3
+		$p = $this -> Cadastro -> read();
+
+		// enviando para a VIEW os campos do item
+		$this -> set('cadastro', $p);
+	}
+
+	// /cadastros/add
+	public function add() {
+		# se for enviado um POST pegar os dados do form e salvar no banco
+		if ($this -> request -> is('cadastros')) {
+
+			$dadosDoFormulario = $this -> request -> data;
+
+			# tentar salvar os dados no banco
+			# se conseguir salvar, mostrar uma MSG e REDIRECIONAR pra o INDEX
+			if ($this -> Cadastro -> save($dadosDoFormulario)) {
+				# mostrar MSG
+				$this -> Session -> setFlash("A Postagem foi inserida com sucesso!");
+
+				# redirecionar para o index
+				$this -> redirect(array('action' => 'index'));
 			}
 		}
+	}
 
-		public function edit($id = null) {
-		    $this->Cadastro->id = $id;
-		    if ($this->request->is('get')) {
-		        $this->request->data = $this->Cadastro->read();
-		    } else {
-		        if ($this->Cadastro->save($this->request->data)) {
-		            $this->Session->setFlash('O cadastro foi atualizado.');
-		            $this->redirect(array('action' => 'index'));
-		        }
-		    }
-		}
-
-		public function delete($id) {
-		    if (!$this->request->is('cadastro')) {
-		        throw new MethodNotAllowedException();
-		    }
-		    if ($this->Cadastro->delete($id)     ) {
-		        $this->Session->setFlash('O cadastro do id: ' . $id . ' foi deletado com sucesso.');
-		        $this->redirect(array('action' => 'index'));
-		    }
+	public function edit($id = null) {
+		$this -> Cadastro -> id = $id;
+		if ($this -> request -> is('get')) {
+			$this -> request -> data = $this -> Cadastro -> read();
+		} else {
+			if ($this -> Cadastro -> save($this -> request -> data)) {
+				$this -> Session -> setFlash('Your post has been updated.');
+				$this -> redirect(array('action' => 'index'));
+			}
 		}
 	}
+
+	public function delete($id) {
+		if (!$this -> request -> is('cadastro')) {
+			throw new MethodNotAllowedException();
+		}
+		if ($this -> Cadastro -> delete($id)) {
+			$this -> Session -> setFlash('The post with id: ' . $id . ' has been deleted.');
+			$this -> redirect(array('action' => 'index'));
+		}
+	}
+
+}

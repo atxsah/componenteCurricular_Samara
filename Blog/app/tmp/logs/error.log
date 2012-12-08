@@ -732,3 +732,32 @@
 #3 C:\xampp\htdocs\componenteCurricular\Blog\lib\Cake\Routing\Dispatcher.php(161): Dispatcher->_invoke(Object(CadastrosController), Object(CakeRequest), Object(CakeResponse))
 #4 C:\xampp\htdocs\componenteCurricular\Blog\app\webroot\index.php(92): Dispatcher->dispatch(Object(CakeRequest), Object(CakeResponse))
 #5 {main}
+2012-12-08 19:18:08 Error: Fatal Error (1): Call to a member function read() on a non-object in [C:\xampp\htdocs\FINAL_componenteCurricular_Samara\Blog\app\Controller\CadastrosController.php, line 31]
+2012-12-08 19:18:08 Error: [FatalErrorException] Call to a member function read() on a non-object
+#0 C:\xampp\htdocs\FINAL_componenteCurricular_Samara\Blog\lib\Cake\Error\ErrorHandler.php(162): ErrorHandler::handleFatalError(1, 'Call to a membe...', 'C:\xampp\htdocs...', 31)
+#1 [internal function]: ErrorHandler::handleError(1, 'Call to a membe...', 'C:\xampp\htdocs...', 31, Array)
+#2 C:\xampp\htdocs\FINAL_componenteCurricular_Samara\Blog\lib\Cake\Core\App.php(926): call_user_func('ErrorHandler::h...', 1, 'Call to a membe...', 'C:\xampp\htdocs...', 31, Array)
+#3 C:\xampp\htdocs\FINAL_componenteCurricular_Samara\Blog\lib\Cake\Core\App.php(899): App::_checkFatalError()
+#4 [internal function]: App::shutdown()
+#5 {main}
+2012-12-08 19:20:56 Error: [MethodNotAllowedException] Method Not Allowed
+#0 [internal function]: CadastrosController->delete('1')
+#1 C:\xampp\htdocs\FINAL_componenteCurricular_Samara\Blog\lib\Cake\Controller\Controller.php(485): ReflectionMethod->invokeArgs(Object(CadastrosController), Array)
+#2 C:\xampp\htdocs\FINAL_componenteCurricular_Samara\Blog\lib\Cake\Routing\Dispatcher.php(186): Controller->invokeAction(Object(CakeRequest))
+#3 C:\xampp\htdocs\FINAL_componenteCurricular_Samara\Blog\lib\Cake\Routing\Dispatcher.php(161): Dispatcher->_invoke(Object(CadastrosController), Object(CakeRequest), Object(CakeResponse))
+#4 C:\xampp\htdocs\FINAL_componenteCurricular_Samara\Blog\app\webroot\index.php(92): Dispatcher->dispatch(Object(CakeRequest), Object(CakeResponse))
+#5 {main}
+2012-12-08 19:22:14 Error: [MethodNotAllowedException] Method Not Allowed
+#0 [internal function]: CadastrosController->delete('1')
+#1 C:\xampp\htdocs\FINAL_componenteCurricular_Samara\Blog\lib\Cake\Controller\Controller.php(485): ReflectionMethod->invokeArgs(Object(CadastrosController), Array)
+#2 C:\xampp\htdocs\FINAL_componenteCurricular_Samara\Blog\lib\Cake\Routing\Dispatcher.php(186): Controller->invokeAction(Object(CakeRequest))
+#3 C:\xampp\htdocs\FINAL_componenteCurricular_Samara\Blog\lib\Cake\Routing\Dispatcher.php(161): Dispatcher->_invoke(Object(CadastrosController), Object(CakeRequest), Object(CakeResponse))
+#4 C:\xampp\htdocs\FINAL_componenteCurricular_Samara\Blog\app\webroot\index.php(92): Dispatcher->dispatch(Object(CakeRequest), Object(CakeResponse))
+#5 {main}
+2012-12-08 19:22:19 Error: [MethodNotAllowedException] Method Not Allowed
+#0 [internal function]: CadastrosController->delete('1')
+#1 C:\xampp\htdocs\FINAL_componenteCurricular_Samara\Blog\lib\Cake\Controller\Controller.php(485): ReflectionMethod->invokeArgs(Object(CadastrosController), Array)
+#2 C:\xampp\htdocs\FINAL_componenteCurricular_Samara\Blog\lib\Cake\Routing\Dispatcher.php(186): Controller->invokeAction(Object(CakeRequest))
+#3 C:\xampp\htdocs\FINAL_componenteCurricular_Samara\Blog\lib\Cake\Routing\Dispatcher.php(161): Dispatcher->_invoke(Object(CadastrosController), Object(CakeRequest), Object(CakeResponse))
+#4 C:\xampp\htdocs\FINAL_componenteCurricular_Samara\Blog\app\webroot\index.php(92): Dispatcher->dispatch(Object(CakeRequest), Object(CakeResponse))
+#5 {main}
