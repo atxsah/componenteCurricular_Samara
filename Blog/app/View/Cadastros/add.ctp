@@ -1,4 +1,4 @@
-<h1>Adicionando novo Cadastro</h1>
+<h1>Adicionando novo Cadastro de Evento</h1>
 
 <?php
 //criando o formulario através do Ajudante Form
